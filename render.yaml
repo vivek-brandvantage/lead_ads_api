@@ -5,7 +5,7 @@ services:
     buildCommand: |
       pip install -r requirements.txt
       playwright install --with-deps
-    startCommand: gunicorn adsapi:app
+    startCommand: uvicorn adsapi:app --host 0.0.0.0 --port 10000
     envVars:
       - key: PYTHON_VERSION
         value: 3.11
