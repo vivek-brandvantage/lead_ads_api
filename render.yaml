@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: ads-detector
+    runtime: python
+    buildCommand: |
+      pip install -r requirements.txt
+      playwright install --with-deps
+    startCommand: gunicorn adsapi:app
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11
